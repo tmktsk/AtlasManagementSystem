@@ -23,5 +23,43 @@ class UsersTableSeeder extends Seeder
             'role' => '4',
             'password' => 'tasakatomoki',
         ]);
+
+        User::create([
+            'over_name' => '田坂',
+            'under_name' => '智子',
+            'over_name_kana' => 'タサカ',
+            'under_name_kana' => 'トモコ',
+            'mail_address' => 'tomoko@ne.jp',
+            'sex' => '2',
+            'birth_day' => '2002-09-12',
+            'role' => '4',
+            'password' => 'tasakatomoko',
+        ]);
+
+        User::create([
+            'over_name' => '英語の',
+            'under_name' => '先生',
+            'over_name_kana' => 'エイゴノ',
+            'under_name_kana' => 'センセイ',
+            'mail_address' => 'english@ne.jp',
+            'sex' => '2',
+            'birth_day' => '2000-01-26',
+            'role' => '3',
+            'password' => 'eigonosensei',
+        ]);
+
+        User::create([
+            'over_name' => '数学の',
+            'under_name' => '先生',
+            'over_name_kana' => 'スウガクノ',
+            'under_name_kana' => 'センセイ',
+            'mail_address' => 'math@ne.jp',
+            'sex' => '1',
+            'birth_day' => '2000-05-10',
+            'role' => '2',
+            'password' => 'suugakunosensei',
+        ]);
+
+
     }
 }
