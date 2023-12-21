@@ -21,7 +21,7 @@ class UsersTableSeeder extends Seeder
             'sex' => '1',
             'birth_day' => '2000-02-28',
             'role' => '4',
-            'password' => 'tasakatomoki',
+            'password' => Hash::make('tasakatomoki'),
         ]);
 
         User::create([
@@ -33,7 +33,7 @@ class UsersTableSeeder extends Seeder
             'sex' => '2',
             'birth_day' => '2002-09-12',
             'role' => '4',
-            'password' => 'tasakatomoko',
+            'password' => Hash::make('tasakatomoko'),
         ]);
 
         User::create([
@@ -45,7 +45,7 @@ class UsersTableSeeder extends Seeder
             'sex' => '2',
             'birth_day' => '2000-01-26',
             'role' => '3',
-            'password' => 'eigonosensei',
+            'password' => Hash::make('eigonosensei'),
         ]);
 
         User::create([
@@ -57,7 +57,7 @@ class UsersTableSeeder extends Seeder
             'sex' => '1',
             'birth_day' => '2000-05-10',
             'role' => '2',
-            'password' => 'suugakunosensei',
+            'password' => Hash::make('suugakunosensei'),
         ]);
 
 

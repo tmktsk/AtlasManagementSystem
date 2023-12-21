@@ -159,7 +159,14 @@ li {
 .error_message {
   font-size: 12px;
   color: red;
+  display: inline-block;
+  white-space: nowrap;
 }
+
+/* .alert.alert-danger {
+  display: inline-block;
+  white-space: nowrap;
+} */
 
 /* 掲示板 詳細画面 */
 .contributor {
