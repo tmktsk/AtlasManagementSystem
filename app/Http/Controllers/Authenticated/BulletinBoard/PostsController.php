@@ -56,11 +56,14 @@ class PostsController extends Controller
     }
 
     public function postCreate(PostFormRequest $request){
+        // dd($request);
         $post = Post::create([
             'user_id' => Auth::id(),
             'post_title' => $request->post_title,
             'post' => $request->post_body
         ]);
+        $subCategoryIds = $request->input('post_category_id');
+        $post->subCategories()->attach($subCategoryIds);
         return redirect()->route('post.show');
     }
 
@@ -76,10 +79,12 @@ class PostsController extends Controller
         Post::findOrFail($id)->delete();
         return redirect()->route('post.show');
     }
+
     public function mainCategoryCreate(Request $request){
         MainCategory::create(['main_category' => $request->main_category_name]);
         return redirect()->route('post.input');
     }
+
     public function subCategoryCreate(Request $request){
         SubCategory::create([
             'sub_category' => $request->sub_category_name,

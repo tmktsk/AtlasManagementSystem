@@ -146,6 +146,14 @@ li {
   justify-content: space-between;
 }
 
+/* .subjects {
+  display: flex;
+}
+ */
+/* .comment-like {
+  margin-left: auto;
+} */
+
 .like_btn,
 .un_like_btn {
   cursor: pointer;

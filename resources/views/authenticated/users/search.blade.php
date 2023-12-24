@@ -44,7 +44,7 @@
         @endif
       </div>
       <div>
-        @if($user->role == 4)
+        @if($user->subjects->isNotEmpty())
           <span>選択科目：</span>
           @foreach($user->subjects as $subject)
           <span>{{ $subject->subject }}</span>
