@@ -62,8 +62,8 @@ class RegisterFormRequest extends FormRequest
         'old_month' => '1~12のうちから選択して下さい。',
         'old_day' => '1~31のうちから選択して下さい。',
         'role.in' => '4つの項目から選択して下さい。',
-        'min:8' => '8文字以上で入力して下さい。',
-        'max:30' => '30文字以内で入力して下さい。',
+        'password.min' => '8文字以上で入力して下さい。',
+        'password.max' => '30文字以内で入力して下さい。',
         'confirmed' => '確認用パスワードと一致していません。',
         'same' => 'パスワードと一致しません。',
         ];

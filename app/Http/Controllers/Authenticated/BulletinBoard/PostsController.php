@@ -12,6 +12,9 @@ use App\Models\Posts\Like;
 use App\Models\Users\User;
 use App\Http\Requests\BulletinBoard\PostFormRequest;
 use Auth;
+// use Illuminate\Support\Facades\DB;
+// use Illuminate\Support\Facades\dd;
+
 
 class PostsController extends Controller
 {
@@ -33,6 +36,7 @@ class PostsController extends Controller
             ->whereIn('id', $likes)->get();
         }else if($request->my_posts){
             $posts = Post::with('user', 'postComments')
+
             ->where('user_id', Auth::id())->get();
         }
         return view('authenticated.bulletinboard.posts', compact('posts', 'categories', 'like', 'post_comment'));

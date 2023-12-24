@@ -74,7 +74,7 @@
             </div>
           </div>
           <div class="mt-3">
-            @if($errors->has('over_name_kana'))
+            @if($errors->has('mail_address'))
               <div class="mail_address">
                 @foreach ($errors->get('mail_address') as $error)
                   {{ $error }}<br>
