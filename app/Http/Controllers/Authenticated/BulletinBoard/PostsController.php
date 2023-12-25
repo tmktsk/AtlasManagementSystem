@@ -13,6 +13,7 @@ use App\Models\Users\User;
 use App\Http\Requests\BulletinBoard\PostFormRequest;
 use App\Http\Requests\BulletinBoard\EditFormRequest;
 use Auth;
+use Illuminate\Validation\Rule;
 // use Illuminate\Support\Facades\DB;
 // use Illuminate\Support\Facades\dd;
 
@@ -94,6 +95,15 @@ class PostsController extends Controller
     }
 
     public function commentCreate(Request $request){
+
+        $request->validate([
+            'comment' => [
+                'required',
+                'string',
+                'max:2500'
+            ],
+        ]);
+
         PostComment::create([
             'post_id' => $request->post_id,
             'user_id' => Auth::id(),

@@ -154,6 +154,11 @@ li {
   margin-left: auto;
 } */
 
+/* .icon {
+  display: flex;
+  position: absolute;
+} */
+
 .like_btn,
 .un_like_btn {
   cursor: pointer;
