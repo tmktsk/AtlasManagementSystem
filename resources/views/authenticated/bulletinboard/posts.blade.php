@@ -18,7 +18,7 @@
                   @endforeach
                 @endif
               </div>
-              <div class="d-flex">
+              <div class="d-flex" style="margin-left: auto;">
                 <div class="mr-5">
                   <i class="fa fa-comment"></i>
                     <span class="">
@@ -27,9 +27,9 @@
                 </div>
                 <div>
                   @if(Auth::user()->is_Like($post->id))
-                    <p class="m-0"><i class="fas fa-heart un_like_btn" post_id="{{ $post->id }}"></i><span class="like_counts{{ $post->id }}"></span></p>
+                    <p class="m-0"><i class="fas fa-heart un_like_btn" post_id="{{ $post->id }}"></i><span class="like_counts{{ $post->id }}">{{ $like->likeCounts($post->id) }}</span></p>
                   @else
-                    <p class="m-0"><i class="fas fa-heart like_btn" post_id="{{ $post->id }}"></i><span class="like_counts{{ $post->id }}"></span></p>
+                    <p class="m-0"><i class="fas fa-heart like_btn" post_id="{{ $post->id }}"></i><span class="like_counts{{ $post->id }}">{{ $like->likeCounts($post->id) }}</span></p>
                   @endif
                 </div>
               </div>
@@ -50,8 +50,15 @@
       <input type="submit" name="my_posts" class="category_btn" value="自分の投稿" form="postSearchRequest">
       <ul>
         @foreach($categories as $category)
-        <li class="main_categories" category_id="{{ $category->id }}"><span>{{ $category->main_category }}<span></li>
-          <ul class="sub_categories" category_id="{{ $category->id }}"><span>{{ $category->sub_category }}</span></ul>
+          <li class="main_categories" category_id="{{ $category->id }}">
+            <span>{{ $category->main_category }}<span>
+              <ul class="sub_categories" category_id="{{ $category->id }}">
+                {{ $category->subCategories }}
+                @foreach($category->subCategories as $subcategory)
+                  <li><span>{{ $subcategory->sub_category }}</span></li>
+                @endforeach
+              </ul>
+          </li>
         @endforeach
       </ul>
     </div>

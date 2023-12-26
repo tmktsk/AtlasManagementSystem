@@ -159,6 +159,10 @@ li {
   position: absolute;
 } */
 
+.post_status {
+  width: 100%;
+}
+
 .like_btn,
 .un_like_btn {
   cursor: pointer;

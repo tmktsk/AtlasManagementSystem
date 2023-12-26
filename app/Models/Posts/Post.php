@@ -28,6 +28,15 @@ class Post extends Model
         // リレーションの定義
     }
 
+    public function like(){
+        return $this->hasMany('App\Models\Posts\Like', 'id', 'like_post_id');
+    }
+
+    // public function likeCounts()
+    // {
+    //     return $this->likes()->count();
+    // }
+
     // コメント数
     public function commentCounts($post_id){
         return Post::with('postComments')->find($post_id)->postComments();

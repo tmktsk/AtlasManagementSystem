@@ -14,6 +14,16 @@ class Authenticate extends Middleware
      */
     protected function redirectTo($request)
     {
+
+        // セッションが切れているかどうかをチェック
+        if (!auth()->check()) {
+            // ログアウト処理
+            auth()->logout();
+
+            // ログイン画面にリダイレクト
+            return route('login');
+        }
+
         if (! $request->expectsJson()) {
             return route('login');
         }
