@@ -28,9 +28,12 @@ class SelectNameDetails implements DisplayUsers{
       $q->whereIn('sex', $gender)
       ->whereIn('role', $role);
     })
+
+    // $subjects = [22, 23, 24];
     ->whereHas('subjects', function($q) use ($subjects){
-      $q->where('subjects.id', $subjects);
-    })
+      // dd($subjects);
+      $q->whereIn('subject_id', $subjects);
+          })
     ->orderBy('over_name_kana', $updown)->get();
     return $users;
   }
