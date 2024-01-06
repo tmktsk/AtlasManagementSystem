@@ -60,6 +60,18 @@ class UsersTableSeeder extends Seeder
             'password' => Hash::make('suugakunosensei'),
         ]);
 
+        // User::create([
+        //     'over_name' => '',
+        //     'under_name' => '先生',
+        //     'over_name_kana' => 'スウガクノ',
+        //     'under_name_kana' => 'センセイ',
+        //     'mail_address' => 'math@ne.jp',
+        //     'sex' => '1',
+        //     'birth_day' => '2000-05-10',
+        //     'role' => '2',
+        //     'password' => Hash::make('suugakunosensei'),
+        // ]);
+
 
     }
 }

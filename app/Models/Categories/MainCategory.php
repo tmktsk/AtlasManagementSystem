@@ -13,7 +13,8 @@ class MainCategory extends Model
     ];
 
     public function subCategories(){
-        return $this->hasMany('App\Models\Categories\SubCategory', 'id');
+        return $this->hasMany('App\Models\Categories\SubCategory', 'main_category_id', 'id');
+        // return $this->hasMany('App\Models\Categories\SubCategory');
         // リレーションの定義
     }
 

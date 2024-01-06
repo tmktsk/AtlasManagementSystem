@@ -24,6 +24,7 @@ class PostsController extends Controller
         // dd($request);
         $posts = Post::with('user', 'postComments')->get();
         $categories = MainCategory::with('subCategories')->get();
+        // dd($categories);
         $like = new Like;
         $post_comment = new Post;
         if(!empty($request->keyword)){
