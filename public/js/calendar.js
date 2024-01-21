@@ -16,7 +16,7 @@ $(function () {
     var setting_part = $(this).text();
 
     $('.modal-inner-delete .date').text(setting_reserve);
-    $('.modal-inner-delete .place').text(setting_part);
+    $('.modal-inner-delete .time').text(setting_part);
     return false;
 
   });
