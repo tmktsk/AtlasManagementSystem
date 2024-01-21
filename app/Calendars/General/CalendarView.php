@@ -33,12 +33,12 @@ class CalendarView{
     $html[] = '<tbody>';
     $weeks = $this->getWeeks();
     foreach($weeks as $week){
-      $html[] = '<tr class="'.$week->getClassName().'">';
+      $html[] = '<tr class="'.$week->getClassName().'">'; //曜日を取得
 
       $days = $week->getDays();
       foreach($days as $day){
         $startDay = $this->carbon->copy()->format("Y-m-01");
-        $toDay = $this->carbon->copy()->format("Y-m-d");
+        $toDay = $this->carbon->copy()->format("Y-m-d"); //今日の日付を取得
 
         if($startDay <= $day->everyDay() && $toDay >= $day->everyDay()){
           $html[] = '<td class="calendar-td">';
@@ -60,7 +60,8 @@ class CalendarView{
             $html[] = '<p class="m-auto p-0 w-75" style="font-size:12px"></p>';
             $html[] = '<input type="hidden" name="getPart[]" value="" form="reserveParts">';
           }else{
-            $html[] = '<button type="submit" class="btn btn-danger p-0 w-75" data-toggle="modal" data-target="#deletemodal" name="delete_date" style="font-size:12px" value="'. $day->authReserveDate($day->everyDay())->first()->setting_reserve .'">'. $reservePart .'</button>';
+            $html[] = '<button type="submit" class="btn btn-danger p-0 w-75 js-modal-open" name="delete_date" style="font-size:12px" value="'. $day->authReserveDate($day->everyDay())->first()->setting_reserve .'">'. $reservePart .'</button>';
+            // dd($day);
             $html[] = '<input type="hidden" name="getPart[]" value="" form="reserveParts">';
           }
         }else{
@@ -95,26 +96,6 @@ class CalendarView{
     }
     return $weeks;
   }
+
 }
 ?>
-
-
-<div class="modal fade" id="deletemodal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="deleteModalLabel">削除確認</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="閉じる">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                キャンセルしてもよろしいでしょうか。
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">キャンセル</button>
-                <button type="submit" class="btn btn-danger" name="confirm_delete_date">削除</button>
-            </div>
-        </div>
-    </div>
-</div>

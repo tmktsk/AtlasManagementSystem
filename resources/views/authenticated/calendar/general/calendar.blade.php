@@ -15,4 +15,15 @@
     </div>
   </div>
 </div>
+<div class="modal js-modal">
+  <div class="modal__bg js-modal-close"></div>
+  <div class="modal__content">
+    <div class= "modal-inner-delete">
+      <p class="date"></p>
+      <p class="place"></p>
+    <p>上記の予約をキャンセルしますか？</p>
+    <button class="js-modal-close" href="">閉じる</button>
+    <button class="js-cancel-delete">キャンセル</button>
+  </div>
+</div>
 @endsection
