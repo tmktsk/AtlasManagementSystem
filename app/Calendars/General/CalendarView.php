@@ -40,32 +40,37 @@ class CalendarView{
         $startDay = $this->carbon->copy()->format("Y-m-01");
         $toDay = $this->carbon->copy()->format("Y-m-d"); //今日の日付を取得
 
-        if($startDay <= $day->everyDay() && $toDay >= $day->everyDay()){
-          $html[] = '<td class="calendar-td">';
+        if($startDay <= $day->everyDay() && $toDay >= $day->everyDay()){ //$day->everydayが$startDayと$toDayの範囲内であれば
+          $html[] = '<td class="calendar-td" style="background-color: #EEEEEE">'; //今日以前の日にち
         }else{
-          $html[] = '<td class="calendar-td '.$day->getClassName().'">';
+          $html[] = '<td class="calendar-td '.$day->getClassName().'">'; //今日以降の日にち
         }
         $html[] = $day->render();
 
         if(in_array($day->everyDay(), $day->authReserveDay())){
           $reservePart = $day->authReserveDate($day->everyDay())->first()->setting_part;
           if($reservePart == 1){
-            $reservePart = "リモ1部";
+            $reservePart = "リモ1部"; //予約後の部数表示
           }else if($reservePart == 2){
-            $reservePart = "リモ2部";
+            $reservePart = "リモ2部"; //予約後の部数表示
           }else if($reservePart == 3){
-            $reservePart = "リモ3部";
+            $reservePart = "リモ3部"; //予約後の部数表示
           }
-          if($startDay <= $day->everyDay() && $toDay >= $day->everyDay()){
-            $html[] = '<p class="m-auto p-0 w-75" style="font-size:12px"></p>';
-            $html[] = '<input type="hidden" name="getPart[]" value="" form="reserveParts">';
+          if($startDay <= $day->everyDay() && $toDay >= $day->everyDay()){ //$day->everyDay()が$startDayと$toDayの範囲内であれば
+            $html[] = '<p class="m-auto p-0 w-75" style="font-size:12px">'.$reservePart.'</p>';
+            $html[] = '<input type="hidden" name="getPart[]" value="'.$reservePart.'" form="reserveParts">';
+            // $html[] = '<p></p>';
+            // var_dump($reservePart);
           }else{
             $html[] = '<button type="submit" class="btn btn-danger p-0 w-75 js-modal-open" name="delete_date" style="font-size:12px" value="'. $day->authReserveDate($day->everyDay())->first()->setting_reserve .'">'. $reservePart .'</button>';
             // dd($day);
             $html[] = '<input type="hidden" name="getPart[]" value="" form="reserveParts">';
           }
-        }else{
-          $html[] = $day->selectPart($day->everyDay());
+        }else if($startDay <= $day->everyDay() && $toDay >= $day->everyDay()){
+          $html[] = '受付終了';
+        }else {
+            // '<td class="calendar-td">受付終了</td>';
+            $html[] = $day->selectPart($day->everyDay());
         }
         $html[] = $day->getDate();
         $html[] = '</td>';
@@ -84,7 +89,7 @@ class CalendarView{
 
   protected function getWeeks(){
     $weeks = [];
-    $firstDay = $this->carbon->copy()->firstOfMonth();
+    $firstDay = $this->carbon->copy()->firstOfMonth(); //月初めの日時をコピー
     $lastDay = $this->carbon->copy()->lastOfMonth();
     $week = new CalendarWeek($firstDay->copy());
     $weeks[] = $week;
