@@ -22,8 +22,13 @@
       <p class="date"></p>
       <p class="time"></p>
     <p>上記の予約をキャンセルしますか？</p>
+    <form action="/delete/calendar" method="post" id="deleteParts">
+      @csrf
+      <input type="hidden" name="getDate" class="date">
+      <input type="hidden" name="getPart" class="time">
+      <button type="submit">キャンセル</button>
+    </form>
     <button class="js-modal-close" href="">閉じる</button>
-    <button class="js-cancel-delete">キャンセル</button>
   </div>
 </div>
 @endsection

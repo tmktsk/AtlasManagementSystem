@@ -49,6 +49,7 @@ class CalendarView{
 
         if(in_array($day->everyDay(), $day->authReserveDay())){
           $reservePart = $day->authReserveDate($day->everyDay())->first()->setting_part;
+          $html[] = '<input type="hidden" name="getPart[]" value="" form="reserveParts">';
           if($reservePart == 1){
             $reservePart = "リモ1部"; //予約後の部数表示
           }else if($reservePart == 2){
@@ -56,20 +57,19 @@ class CalendarView{
           }else if($reservePart == 3){
             $reservePart = "リモ3部"; //予約後の部数表示
           }
-          if($startDay <= $day->everyDay() && $toDay >= $day->everyDay()){ //$day->everyDay()が$startDayと$toDayの範囲内であれば
+          if($startDay <= $day->everyDay() && $toDay >= $day->everyDay()){ //過去の日付であれば
             $html[] = '<p class="m-auto p-0 w-75" style="font-size:12px">'.$reservePart.'</p>';
-            $html[] = '<input type="hidden" name="getPart[]" value="'.$reservePart.'" form="reserveParts">';
-            // $html[] = '<p></p>';
-            // var_dump($reservePart);
-          }else{
+            // $html[] = '<input type="hidden" name="getPart[]" value="'.$reservePart.'" form="reserveParts">';
+          }else{                       //未来の日付であれば
             $html[] = '<button type="submit" class="btn btn-danger p-0 w-75 js-modal-open" name="delete_date" style="font-size:12px" value="'. $day->authReserveDate($day->everyDay())->first()->setting_reserve .'">'. $reservePart .'</button>';
+            // $html[] = '<input type="hidden" class="data-date" value="'. $day->getDate() .'">';
             // dd($day);
-            $html[] = '<input type="hidden" name="getPart[]" value="" form="reserveParts">';
+            // $html[] = '<input type="hidden" class="reserve-part" value="'. $reservePart .'">';
           }
-        }else if($startDay <= $day->everyDay() && $toDay >= $day->everyDay()){
+        }else if($startDay <= $day->everyDay() && $toDay >= $day->everyDay()){   //予約していない & 過去の日付
           $html[] = '受付終了';
-        }else {
-            // '<td class="calendar-td">受付終了</td>';
+          $html[] = '<input type="hidden" name="getPart[]" value="" form="reserveParts">';
+        }else {                      //予約をしていない場合
             $html[] = $day->selectPart($day->everyDay());
         }
         $html[] = $day->getDate();
