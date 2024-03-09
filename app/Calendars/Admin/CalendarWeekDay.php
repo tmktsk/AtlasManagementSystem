@@ -31,19 +31,21 @@ class CalendarWeekDay{
 
     $html[] = '<div class="text-left">';
     if($one_part){
-      $html[] = '<p class="day_part m-0 pt-1">1部</p>';
+      $user_count = $one_part->users->count();
+      $html[] = '<p class="day_part m-0 pt-1">1部 <span class="user" style="text-align: right;">' . $user_count . '</span> </p>'; //予約数記述
     }
     if($two_part){
-      $html[] = '<p class="day_part m-0 pt-1">2部</p>';
+      $user_count = $two_part->users->count();
+      $html[] = '<p class="day_part m-0 pt-1">2部 <span class="user" style="text-align: right;">' . $user_count . '</span> </p>';
     }
     if($three_part){
-      $html[] = '<p class="day_part m-0 pt-1">3部</p>';
+      $user_count = $three_part->users->count();
+      $html[] = '<p class="day_part m-0 pt-1">3部 <span class="user" style="text-align: right;">' . $user_count . '</span></p>';
     }
     $html[] = '</div>';
 
     return implode("", $html);
   }
-
 
   function onePartFrame($day){
     $one_part_frame = ReserveSettings::where('setting_reserve', $day)->where('setting_part', '1')->first();
