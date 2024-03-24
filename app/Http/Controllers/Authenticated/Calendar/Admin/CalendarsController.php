@@ -11,6 +11,7 @@ use App\Models\Calendars\Calendar;
 use App\Models\USers\User;
 use Auth;
 use DB;
+use Carbon\Carbon;
 
 
 class CalendarsController extends Controller
@@ -21,8 +22,12 @@ class CalendarsController extends Controller
     }
 
     public function reserveDetail($date, $part){
-        $reservePersons = ReserveSettings::with('users')->where('setting_reserve', $date)->where('setting_part', $part)->get();
-        return view('authenticated.calendar.admin.reserve_detail', compact('reservePersons', 'date', 'part'));
+        // dd($part);
+        $fmtdate = Carbon::parse($date)->format("Y年m月d日");
+        // dd($fmtdate);
+        $reservePersons = ReserveSettings::with('users')->where('setting_reserve', $date)->where('setting_part', $part)->first();
+        // dd($reservePersons);
+        return view('authenticated.calendar.admin.reserve_detail', compact('reservePersons', 'fmtdate', 'part'));
     }
 
     public function reserveSettings(){
