@@ -74,7 +74,10 @@
         </select>
       </div>
       <div class="">
-        <p class="m-0 search_conditions"><span>検索条件の追加</span></p>
+        <p class="m-0 search_conditions">
+          <span class="toggle-search-conditions">検索条件の追加</span>
+          <span class="toggle-icon">V</span>
+        </p>
         <div class="search_conditions_inner">
           <div>
             <label>性別</label>

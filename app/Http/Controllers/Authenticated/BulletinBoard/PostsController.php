@@ -14,12 +14,15 @@ use App\Http\Requests\BulletinBoard\PostFormRequest;
 use App\Http\Requests\BulletinBoard\EditFormRequest;
 use Auth;
 use Illuminate\Validation\Rule;
+use Illuminate\Support\Facades\Validator;
+// use App\Http\Controllers\Authenticated\BulletinBoard\Validator;
 
 class PostsController extends Controller
 {
     public function show(Request $request){
         // dd($request);
-        $posts = Post::with('user', 'postComments')->get();
+        $posts = Post::with('user', 'postComments', 'subCategories')->get();
+        // dd($posts);
         $categories = MainCategory::with('subCategories')->get();
         // dd($categories);
         $like = new Like;
@@ -91,11 +94,41 @@ class PostsController extends Controller
     }
 
     public function mainCategoryCreate(Request $request){
-        MainCategory::create(['main_category' => $request->main_category_name]);
-        return redirect()->route('post.input');
+
+        $rules = [
+            'main_category_name' => 'required|string',
+        ];
+
+        $customMessages = [
+            'main_category_name.required' => 'メインカテゴリーは必ず入力して下さい。',
+        ];
+
+        $validator = Validator::make($request->all(), $rules, $customMessages);
+
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
+
+            MainCategory::create(['main_category' => $request->main_category_name]);
+            return redirect()->route('post.input');
     }
 
     public function subCategoryCreate(Request $request){
+
+        $rules = [
+            'sub_category_name' => 'required|string',
+        ];
+
+        $customMessages = [
+            'sub_category_name.required' => 'サブカテゴリーは必ず入力して下さい。',
+        ];
+
+        $validator = Validator::make($request->all(), $rules, $customMessages);
+
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
+
         SubCategory::create([
             'sub_category' => $request->sub_category_name,
             'main_category_id' => $request->main_category_id,
@@ -109,8 +142,10 @@ class PostsController extends Controller
             'comment' => [
                 'required',
                 'string',
-                'max:2500'
+                'max:2500',
             ],
+        ], [
+            'comment.required' => 'コメントは必ず入力してください。'
         ]);
 
         PostComment::create([

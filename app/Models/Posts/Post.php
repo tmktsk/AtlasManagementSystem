@@ -41,4 +41,11 @@ class Post extends Model
     public function commentCounts($post_id){
         return Post::with('postComments')->find($post_id)->postComments();
     }
+
+    //  public function toArray()
+    // {
+    //     $array = parent::toArray();
+    //     $array['subCategories'] = $this->subcategories()->pluck('sub_category')->toArray();
+    //     return $array;
+    // }
 }

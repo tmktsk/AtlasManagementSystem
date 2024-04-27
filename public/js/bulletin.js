@@ -11,6 +11,33 @@ $(function () {
   });
 });
 
+document.addEventListener('DOMContentLoaded', function () {
+  const toggleMainCategory = document.querySelector('.toggle-main-category');
+
+  toggleMainCategory.addEventListener('click', function () {
+    const icon = toggleMainCategory.nextElementSibling;
+    icon.classList.toggle('rotated');
+  });
+});
+
+// $(function () {
+//   $('.toggle-search-conditions').click(function () {
+//     var category_id = $(this).closest('.main_categories').attr('category_id');
+//     // $('.sub_categories[category_id="' + category_id + '"]').slideToggle();
+//     $('.main_categories[category_id="' + category_id + '"] .sub_categories').slideToggle();
+//   });
+// });
+
+document.addEventListener('DOMContentLoaded', function () {
+  const toggleSearchConditions = document.querySelector('.toggle-search-conditions');
+
+  toggleSearchConditions.addEventListener('click', function () {
+    const icon = toggleSearchConditions.nextElementSibling;
+    icon.classList.toggle('rotated');
+  });
+});
+
+
 $(document).on('click', '.like_btn', function (e) {
   e.preventDefault();
   $(this).addClass('un_like_btn');

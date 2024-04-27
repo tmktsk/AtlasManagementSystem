@@ -6,11 +6,12 @@
       <div class="p-3">
         <div class="detail_inner_head">
           <div>
+            <span class="create-subcategory">{{ $post->subCategories->first()->sub_category }}</span>
           </div>
           @if(Auth::check() && Auth::user()->id == $post->user_id)
             <div>
-              <span class="edit-modal-open" post_title="{{ $post->post_title }}" post_body="{{ $post->post }}" post_id="{{ $post->id }}">編集</span>
-              <a href="{{ route('post.delete', ['id' => $post->id]) }}" class="delete-post" data-post-id="{{ $post->id }}">削除</a>
+              <span class="edit-modal-open btn btn-primary" post_title="{{ $post->post_title }}" post_body="{{ $post->post }}" post_id="{{ $post->id }}">編集</span>
+              <a href="{{ route('post.delete', ['id' => $post->id]) }}" class="delete-post btn btn-danger" data-post-id="{{ $post->id }}">削除</a>
             </div>
           @endif
         </div>

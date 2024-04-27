@@ -11,6 +11,9 @@
           <p><a href="{{ route('post.detail', ['id' => $post->id]) }}">{{ $post->post_title }}</a></p>
           <div class="post_bottom_area d-flex">
             <div class="d-flex post_status">
+                <div class="post-category">
+                  <span class="post-subcategory">{{ $post->subCategories->first()->sub_category }}</span>
+                </div>
               <div class="subjects">
                 @if($post->user->subjects->isNotEmpty())
                   @foreach($post->user->subjects as $subject)
@@ -50,12 +53,21 @@
         <input type="submit" name="like_posts" class="like_posts" value="いいねした投稿" form="postSearchRequest">
         <input type="submit" name="my_posts" class="my_posts" value="自分の投稿" form="postSearchRequest">
       </div>
+      <div class="category-search" style="margin-top: 1em;">
+        <p>カテゴリー検索</p>
+      </div>
       @foreach($categories as $category)
         <ul class="main_categories" category_id="{{ $category->id }}">
-          <li><span class="toggle-main-category">{{ $category->main_category }}</span>
+          <li>
+            <div class="toggle-container">
+              <span class="toggle-main-category">{{ $category->main_category }}</span>
+              <span class="toggle-icon">V</span>
+            </div>
             @foreach($category->subCategories as $subcategory)
               <ul class="sub_categories" category_id="{{ $subcategory->id }}">
-                <li><input type="submit" name="category_word" class="sub_category_btn" value="{{ $subcategory->sub_category }}" form="postSearchRequest"></li>
+                <li>
+                  <button type="submit" name="category_word" class="sub_category_btn" form="postSearchRequest">{{ $subcategory->sub_category }}</button>
+                </li>
               </ul>
             @endforeach
           </li>
