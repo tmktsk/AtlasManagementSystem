@@ -402,6 +402,37 @@ li {
 }
 
 /* ユーザー検索 */
+.user_search {
+  width: 65%;
+}
+
+.head-search {
+  display: block;
+  font-size: 1.3em;
+}
+
+.free_word {
+  width: 100%;
+  background-color: #DDDDDD;
+  border: none;
+  border-radius: 5px;
+}
+
+.category-list {
+  /* display: block; */
+  background-color: #DDDDDD;
+  border: none;
+  border-radius: 5px;
+  width: 30%;
+}
+
+.sort-list {
+  background-color: #DDDDDD;
+  border: none;
+  border-radius: 5px;
+  width: 30%;
+}
+
 .reserve_users_area {
   display: flex;
   flex-wrap: wrap;
@@ -423,21 +454,99 @@ li {
   height: 250px;
 }
 
+.condition-add {
+  margin-top: 10%;
+}
+
+.search_conditions {
+  display: flex;
+  border-bottom: 1px solid black;
+  width: 100%;
+  text-align: left;
+}
+
 .search_conditions span {
   cursor: pointer;
 }
 
 .search_conditions_inner {
   display: none;
-  background: #FFF;
+  /* background: #FFF; */
+}
+
+.sex {
+  display: block;
+  margin: 8% 0 2%;
+}
+
+.auth {
+  display: block;
+  margin: 5% 0 2%;
+}
+
+.engineer {
+  background-color: #DDDDDD;
+  border: none;
+  border-radius: 5px;
+}
+
+.selected_engineer {
+  margin-top: 8%;
+}
+
+.search_btn {
+  display: inline-block;
+  background-color: #03AAD2;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  width: 100%;
+  /* width: 225px; */
+  max-width: 100%;
+  text-align: center;
+  margin: 5% 0;
+}
+
+.reset_btn {
+  display: block;
+  border: none;
+  color: #03AAD2;
+  margin: 0 auto;
 }
 
 .subject_edit_btn {
   font-size: 12px;
-  color: #0000FF;
+  /* color: #0000FF; */
+  color: #00BFFF;
   cursor: pointer;
 }
 
 .subject_inner {
   display: none;
 }
+
+.profile-toggle-icon {
+  font-size: 12px;
+  color: #00BFFF;
+  cursor: pointer;
+  margin-left: 0.5em;
+}
+
+.profile-toggle-icon.rotated {
+  transform: rotate(180deg);
+  transition: transform 0.3s ease;
+  margin-left: 0.5em;
+  color: #00BFFF;
+}
+
+.subject-register {
+  display: flex;
+  /* border-bottom: 1px solid black; */
+  /* width: 100%; */
+  text-align: left;
+  margin: 2% 0 1%;
+}
+
+/* .btn btn-primary edit_btn {
+  display: block;
+} */

@@ -3,6 +3,7 @@
 //   $('.category_num' + category_id).slideToggle();
 // });
 
+//投稿一覧ページ
 $(function () {
   $('.toggle-main-category').click(function () {
     var category_id = $(this).closest('.main_categories').attr('category_id');
@@ -28,11 +29,22 @@ document.addEventListener('DOMContentLoaded', function () {
 //   });
 // });
 
+//ユーザー検索ページ
 document.addEventListener('DOMContentLoaded', function () {
   const toggleSearchConditions = document.querySelector('.toggle-search-conditions');
 
   toggleSearchConditions.addEventListener('click', function () {
     const icon = toggleSearchConditions.nextElementSibling;
+    icon.classList.toggle('rotated');
+  });
+});
+
+//プロフィールページ
+document.addEventListener('DOMContentLoaded', function () {
+  const subjectEditBtn = document.querySelector('.subject_edit_btn');
+
+  subjectEditBtn.addEventListener('click', function () {
+    const icon = subjectEditBtn.nextElementSibling;
     icon.classList.toggle('rotated');
   });
 });
