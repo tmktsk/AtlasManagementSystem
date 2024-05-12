@@ -27,6 +27,22 @@ li {
   margin-left: 5%;
 }
 
+/* 新規登録 */
+.register-form {
+  display: flex;
+  justify-content: space-between;
+  width: 75%;
+  margin-left: 10%;
+  margin-top: 5%;
+}
+
+.birth {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+}
+
+
 /* サイドバー */
 .sidebar {
   width: 175px;
@@ -54,6 +70,11 @@ li {
 }
 
 /* スクール予約関連 */
+.calendar-title {
+  display: flex;
+  justify-content: center;
+}
+
 .day-blank {
   background: #D3D3D3;
 }
@@ -67,7 +88,7 @@ li {
 }
 
 .past-day {
-  background: #EEE;
+  background-color: #EEEEEE;
 }
 
 .calendar-td {
@@ -138,6 +159,7 @@ li {
   border-bottom: 1px solid black;
   width: 100%;
   text-align: left;
+  cursor: pointer;
   /* display: block; */
 }
 
@@ -155,7 +177,7 @@ li {
 
 .toggle-icon.rotated {
   transform: rotate(180deg);
-  transition: transform 0.3s ease;
+  transition: transform 0.1s ease;
 }
 
 .sub_categories {
@@ -348,6 +370,36 @@ li {
   justify-content: space-between;
 }
 
+.detail_id {
+  width: 10%;
+  color: white;
+  background-color: #03AAD2;
+}
+
+.detail_name {
+  width: 25%;
+  color: white;
+  background-color: #03AAD2;
+}
+
+.detail_place {
+  width: 40%;
+  color: white;
+  background-color: #03AAD2;
+}
+
+.color-test:nth-child(even) {
+  text-align: center;
+  background-color: white;
+}
+
+.color-test:nth-child(odd) {
+  text-align: center;
+  background-color: #CCFFFF;
+}
+
+
+
 /* 掲示板 コメント */
 .comment_container {
   background: #FFF;
@@ -398,7 +450,7 @@ li {
 .main_categories span,
 .sub_categories li input {
   list-style: none;
-  cursor: pointer;
+  /* cursor: pointer; */
 }
 
 /* ユーザー検索 */
@@ -463,18 +515,23 @@ li {
   border-bottom: 1px solid black;
   width: 100%;
   text-align: left;
-}
-
-.search_conditions span {
   cursor: pointer;
 }
+
+/* .toggle-search-conditions {
+  cursor: pointer;
+} */
+
+/* .search_conditions span {
+  cursor: pointer;
+} */
 
 .search_conditions_inner {
   display: none;
   /* background: #FFF; */
 }
 
-.sex {
+.search-sex {
   display: block;
   margin: 8% 0 2%;
 }
@@ -534,7 +591,7 @@ li {
 
 .profile-toggle-icon.rotated {
   transform: rotate(180deg);
-  transition: transform 0.3s ease;
+  transition: transform 0.1s ease;
   margin-left: 0.5em;
   color: #00BFFF;
 }

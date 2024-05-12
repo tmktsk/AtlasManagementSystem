@@ -64,17 +64,19 @@
               <span class="toggle-icon">V</span>
             </div>
             @foreach($category->subCategories as $subcategory)
-              <ul class="sub_categories" category_id="{{ $subcategory->id }}">
-                <li>
-                  <button type="submit" name="category_word" class="sub_category_btn" form="postSearchRequest">{{ $subcategory->sub_category }}</button>
-                </li>
-              </ul>
+              <form action="{{ route('post.show') }}" method="get" id="postSearchRequest"></form>
+                @csrf
+                <ul class="sub_categories" category_id="{{ $subcategory->id }}">
+                  <li>
+                    <button type="submit" name="category_word" value="{{ $subcategory->sub_category }}" class="sub_category_btn" form="postSearchRequest">{{ $subcategory->sub_category }}</button>
+                  </li>
+                </ul>
+              </form>
             @endforeach
           </li>
         </ul>
       @endforeach
     </div>
   </div>
-  <form action="{{ route('post.show') }}" method="get" id="postSearchRequest"></form>
 </div>
 @endsection

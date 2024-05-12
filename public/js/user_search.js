@@ -1,12 +1,24 @@
 $(function () {
   $('.search_conditions').click(function () {
     $('.search_conditions_inner').slideToggle();
+    const icon = document.querySelector('.toggle-icon');
+    icon.classList.toggle('rotated');
   });
 
   $('.subject_edit_btn').click(function () {
     $('.subject_inner').slideToggle();
   });
 });
+
+//ユーザー検索ページ
+// document.addEventListener('DOMContentLoaded', function () {
+//   const toggleSearchConditions = document.querySelector('.toggle-search-conditions');
+
+//   toggleSearchConditions.addEventListener('click', function () {
+//     const icon = toggleSearchConditions.nextElementSibling;
+//     icon.classList.toggle('rotated');
+//   });
+// });
 
 // $(function () {
 //   alert('hello world');

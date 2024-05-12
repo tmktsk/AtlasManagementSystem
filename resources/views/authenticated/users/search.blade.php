@@ -1,7 +1,6 @@
 @extends('layouts.sidebar')
 
 @section('content')
-<p>ユーザー検索</p>
 <div class="search_content w-100 border d-flex">
   <div class="reserve_users_area">
     @foreach($users as $user)
@@ -81,7 +80,7 @@
         </p>
         <div class="search_conditions_inner">
           <div style="margin-top:5%;">
-            <label class="sex">性別</label>
+            <label class="search-sex">性別</label>
             <span>男</span><input type="radio" name="sex" value="1" form="userSearchRequest">
             <span>女</span><input type="radio" name="sex" value="2" form="userSearchRequest">
             <span>その他</span><input type="radio" name="sex" value="3" form="userSearchRequest">

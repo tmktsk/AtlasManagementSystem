@@ -35,7 +35,7 @@ class CalendarWeekDay{
       $date = $this->carbon->format("Y-m-d");
       $html[] = '<a href="' . route('calendar.admin.detail', ['date' => $date, 'part' => 1]) . '">
                 <p class="day_part m-0 pt-1">1部 <span class="user" style="text-align: right;"></a>' . $user_count . '</span> </p>'; //予約数記述
-    }
+    } //else文で0人である記述
     if($two_part){
       $user_count = $two_part->users->count();
       $date = $this->carbon->format("Y-m-d");
@@ -81,7 +81,6 @@ class CalendarWeekDay{
     return $three_part_frame;
   }
 
-  //
   function dayNumberAdjustment(){
     $html = [];
     $html[] = '<div class="adjust-area">';

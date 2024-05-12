@@ -5,7 +5,7 @@
 
 //投稿一覧ページ
 $(function () {
-  $('.toggle-main-category').click(function () {
+  $('.toggle-container').click(function () {
     var category_id = $(this).closest('.main_categories').attr('category_id');
     // $('.sub_categories[category_id="' + category_id + '"]').slideToggle();
     $('.main_categories[category_id="' + category_id + '"] .sub_categories').slideToggle();
@@ -13,10 +13,10 @@ $(function () {
 });
 
 document.addEventListener('DOMContentLoaded', function () {
-  const toggleMainCategory = document.querySelector('.toggle-main-category');
+  const toggleContainer = document.querySelector('.toggle-container');
 
-  toggleMainCategory.addEventListener('click', function () {
-    const icon = toggleMainCategory.nextElementSibling;
+  toggleContainer.addEventListener('click', function () {
+    const icon = toggleContainer.querySelector('.toggle-icon');
     icon.classList.toggle('rotated');
   });
 });
@@ -29,15 +29,19 @@ document.addEventListener('DOMContentLoaded', function () {
 //   });
 // });
 
-//ユーザー検索ページ
-document.addEventListener('DOMContentLoaded', function () {
-  const toggleSearchConditions = document.querySelector('.toggle-search-conditions');
 
-  toggleSearchConditions.addEventListener('click', function () {
-    const icon = toggleSearchConditions.nextElementSibling;
-    icon.classList.toggle('rotated');
-  });
-});
+// const toggleIcon = document.querySelector('.toggle-icon');
+
+// toggleIcon.addEventListener('click', function (event) {
+//   event.stopPropagation(); // イベントの伝播を停止
+// });
+
+// const searchConditions = document.querySelector('.search_conditions');
+
+// searchConditions.addEventListener('click', function (event) {
+//   event.stopPropagation(); // イベントの伝播を停止
+// });
+
 
 //プロフィールページ
 document.addEventListener('DOMContentLoaded', function () {

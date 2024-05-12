@@ -5,15 +5,17 @@
   <div class="w-50 m-auto h-75">
     <p><span>{{ $fmtdate }}</span><span class="ml-3">{{ $part }}部</span></p>
     <div class="h-75 border">
-      <table class="">
+      <table class="" style="width:100%;">
         <tr class="text-center">
-          <th class="w-25">ID</th>
-          <th class="w-25">名前</th>
+          <th class="detail_id">ID</th>
+          <th class="detail_name">名前</th>
+          <th class="detail_place">場所</th>
         </tr>
         @foreach($reservePersons->users as $user)
-          <tr class="text-center">
-            <td class="w-25">{{ $user->id }}</td>
+          <tr class="color-test">
+            <td class="w-10">{{ $user->id }}</td>
             <td class="w-25">{{ $user->over_name }}{{ $user->under_name }}</td>
+            <td class="w-40">リモート</td>
           </tr>
         @endforeach
       </table>
