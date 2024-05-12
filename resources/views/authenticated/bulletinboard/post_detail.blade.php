@@ -27,11 +27,11 @@
           @if($errors->first('post_title'))
             <span class="error_message">{{ $errors->first('post_title') }}</span>
           @endif
-        <div class="detsail_post_title">{{ $post->post_title }}</div>
+        <div class="detail_post_title">{{ $post->post_title }}</div>
           @if($errors->first('post_body'))
             <span class="error_message">{{ $errors->first('post_body') }}</span>
           @endif
-        <div class="mt-3 detsail_post">{{ $post->post }}</div>
+        <div class="mt-3 detail_post">{{ $post->post }}</div>
       </div>
       <div class="p-3">
         <div class="comment_container">
