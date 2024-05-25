@@ -26,8 +26,8 @@ class CalendarView{
     $html[] = '<th>水</th>';
     $html[] = '<th>木</th>';
     $html[] = '<th>金</th>';
-    $html[] = '<th>土</th>';
-    $html[] = '<th>日</th>';
+    $html[] = '<th style="color:#0000FF;">土</th>';
+    $html[] = '<th style="color:#FF0000;">日</th>';
     $html[] = '</tr>';
     $html[] = '</thead>';
     $html[] = '<tbody>';
@@ -41,13 +41,13 @@ class CalendarView{
         $toDay = $this->carbon->copy()->format("Y-m-d"); //今日の日付を取得
 
         if($startDay <= $day->everyDay() && $toDay >= $day->everyDay()){ //$day->everydayが$startDayと$toDayの範囲内であれば
-          $html[] = '<td class="calendar-td" style="background-color: #EEEEEE">'; //今日以前の日にち
+          $html[] = '<td class="calendar-td '.$day->getClassName().'" style="background-color: #EEEEEE">'; //今日以前の日にち
         }else{
           $html[] = '<td class="calendar-td '.$day->getClassName().'">'; //今日以降の日にち
         }
         $html[] = $day->render();
 
-        if(in_array($day->everyDay(), $day->authReserveDay())){
+        if(in_array($day->everyDay(), $day->authReserveDay())){ //予約されていれば？？
           $reservePart = $day->authReserveDate($day->everyDay())->first()->setting_part;
           $html[] = '<input type="hidden" name="getPart[]" value="" form="reserveParts">';
           if($reservePart == 1){
@@ -67,7 +67,7 @@ class CalendarView{
             // $html[] = '<input type="hidden" class="reserve-part" value="'. $reservePart .'">';
           }
         }else if($startDay <= $day->everyDay() && $toDay >= $day->everyDay()){   //予約していない & 過去の日付
-          $html[] = '受付終了';
+          $html[] = '<span style="color: black;">受付終了</span>';
           $html[] = '<input type="hidden" name="getPart[]" value="" form="reserveParts">';
         }else {                      //予約をしていない場合
             $html[] = $day->selectPart($day->everyDay());

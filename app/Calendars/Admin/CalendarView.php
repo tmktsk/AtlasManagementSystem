@@ -25,8 +25,8 @@ class CalendarView{
     $html[] = '<th class="border">水</th>';
     $html[] = '<th class="border">木</th>';
     $html[] = '<th class="border">金</th>';
-    $html[] = '<th class="border">土</th>';
-    $html[] = '<th class="border">日</th>';
+    $html[] = '<th style="color:#0000FF;">土</th>';
+    $html[] = '<th style="color:#FF0000;">日</th>';
     $html[] = '</tr>';
     $html[] = '</thead>';
     $html[] = '<tbody>';
@@ -39,8 +39,8 @@ class CalendarView{
       foreach($days as $day){
         $startDay = $this->carbon->format("Y-m-01");
         $toDay = $this->carbon->format("Y-m-d");
-        if($startDay <= $day->everyDay() && $toDay >= $day->everyDay()){
-          $html[] = '<td class="past-day border" style="background-color: #EEEEEE">';
+        if($startDay <= $day->everyDay() && $toDay >= $day->everyDay()){ //過去の日付であれば
+          $html[] = '<td class="past-day border '.$day->getClassName().'" style="background-color: #EEEEEE">';
           // $html[] = '<td class="calendar-td" style="background-color: #EEEEEE">';
         }else{
           $html[] = '<td class="border '.$day->getClassName().'">';

@@ -5,21 +5,21 @@
   <div class="reserve_users_area">
     @foreach($users as $user)
     <div class="border one_person">
-      <div>
+      <div class="profile_category">
         <span>ID : </span><span>{{ $user->id }}</span>
       </div>
-      <div><span>名前 : </span>
+      <div class="profile_category"><span>名前 : </span>
         <a href="{{ route('user.profile', ['id' => $user->id]) }}">
           <span>{{ $user->over_name }}</span>
           <span>{{ $user->under_name }}</span>
         </a>
       </div>
-      <div>
+      <div class="profile_category">
         <span>カナ : </span>
         <span>({{ $user->over_name_kana }}</span>
         <span>{{ $user->under_name_kana }})</span>
       </div>
-      <div>
+      <div class="profile_category">
         @if($user->sex == 1)
         <span>性別 : </span><span>男</span>
         @elseif($user->sex == 2)
@@ -28,10 +28,10 @@
         <span>性別 : </span><span>その他</span>
         @endif
       </div>
-      <div>
+      <div class="profile_category">
         <span>生年月日 : </span><span>{{ $user->birth_day }}</span>
       </div>
-      <div>
+      <div class="profile_category">
         @if($user->role == 1)
         <span>権限 : </span><span>教師(国語)</span>
         @elseif($user->role == 2)
@@ -42,7 +42,7 @@
         <span>権限 : </span><span>生徒</span>
         @endif
       </div>
-      <div>
+      <div class="profile_category">
         @if($user->subjects->isNotEmpty())
           <span>選択科目：</span>
           @foreach($user->subjects as $subject)
@@ -53,7 +53,7 @@
     </div>
     @endforeach
   </div>
-  <div class="search_area w-25 border">
+  <div class="search_area w-25 border" style="margin-top:3%;">
     <div class="user_search">
       <div>
         <span class="head-search">検索</span>

@@ -21,39 +21,39 @@
       @section('sidebar')
       <p>
         <a href="{{ route('top.show') }}">
-          <img src="{{ asset('image/Home.jpg') }}" alt="トップ" class="Icon">トップ
+          <img src="{{ asset('image/Home.svg') }}" alt="トップ" class="Icon">トップ
         </a>
       </p>
       <p>
         <a href="/logout">
-          <img src="{{ asset('image/Logout.jpg') }}" alt="ログアウト" class="Icon">ログアウト
+          <img src="{{ asset('image/Logout.svg') }}" alt="ログアウト" class="Icon">ログアウト
         </a>
       </p>
       <p>
         <a href="{{ route('calendar.general.show',['user_id' => Auth::id()]) }}">
-          <img src="{{ asset('image/Calendar.jpg') }}" alt="スクール予約" class="Icon">スクール予約
+          <img src="{{ asset('image/Calendar.svg') }}" alt="スクール予約" class="Icon">スクール予約
         </a>
       </p>
       @can('admin', Auth::user())
         <p>
           <a href="{{ route('calendar.admin.show',['user_id' => Auth::id()]) }}">
-            <img src="{{ asset('image/Check.jpg') }}" alt="スクール予約確認" class="Icon">スクール予約確認
+            <img src="{{ asset('image/Check.svg') }}" alt="スクール予約確認" class="Icon">スクール予約確認
           </a>
         </p>
         <p>
           <a href="{{ route('calendar.admin.setting',['user_id' => Auth::id()]) }}">
-            <img src="{{ asset('image/Register.jpg') }}" alt="スクール枠登録" class="Icon">スクール枠登録
+            <img src="{{ asset('image/Register.svg') }}" alt="スクール枠登録" class="Icon">スクール枠登録
           </a>
         </p>
       @endcan
         <p>
           <a href="{{ route('post.show') }}">
-            <img src="{{ asset('image/Bulletin.jpg') }}" alt="掲示板" class="Icon">掲示板
+            <img src="{{ asset('image/Bulletin.svg') }}" alt="掲示板" class="Icon">掲示板
           </a>
         </p>
         <p>
           <a href="{{ route('user.show') }}">
-            <img src="{{ asset('image/Search.jpg') }}" alt="ユーザー検索" class="Icon">ユーザー検索
+            <img src="{{ asset('image/Search.svg') }}" alt="ユーザー検索" class="Icon">ユーザー検索
           </a>
         </p>
       @show

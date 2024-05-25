@@ -27,7 +27,15 @@ li {
   margin-left: 5%;
 }
 
+.form-style {
+  background-color: white;
+  box-shadow: 0 0.5em 1em rgba(0, 0, 0, 0.2);
+  border-radius: 0.5em;
+}
+
 /* 新規登録 */
+
+
 .register-form {
   display: flex;
   justify-content: space-between;
@@ -45,7 +53,7 @@ li {
 
 /* サイドバー */
 .sidebar {
-  width: 175px;
+  width: 190px;
   height: 100vh;
   background-color: #03AAD2;
   font-weight: bold;
@@ -61,6 +69,7 @@ li {
 
 .Icon {
   margin: 0 3%;
+  width: 15%;
 }
 
 /* トップページ */
@@ -493,12 +502,12 @@ li {
 .reserve_users_area {
   display: flex;
   flex-wrap: wrap;
-  width: 800px;
-  margin: 10px auto;
+  width: 80%;
+  margin: 10px 5%;
   height: 80vh;
   overflow: scroll;
   padding: 10px;
-  background: #FFF;
+  /* background: #FFF; */
   border-radius: 5px;
 }
 
@@ -509,9 +518,18 @@ li {
 .one_person {
   width: 250px;
   height: 250px;
+  background-color: white;
+  box-shadow: 0 0.5em 1em rgba(0, 0, 0, 0.2);
+  border-radius: 0.5em;
+  margin: 1%;
+  padding: 2%;
 }
 
-.condition-add {
+.profile_category {
+  margin-bottom: 5%;
+}
+
+.search_area .condition-add {
   margin-top: 10%;
 }
 
