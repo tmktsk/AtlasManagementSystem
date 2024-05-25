@@ -504,7 +504,7 @@ li {
   flex-wrap: wrap;
   width: 80%;
   margin: 10px 5%;
-  height: 80vh;
+  /* height: 80vh; */
   overflow: scroll;
   padding: 10px;
   /* background: #FFF; */
