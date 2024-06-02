@@ -16,7 +16,7 @@
   <form action="{{ route('loginPost') }}" method="POST" style="position:relative;">
     <div class="w-100 vh-100 login-form" style="align-items:center; justify-content:center;">
       <img src="{{ asset('image/atlas-black.png') }}" alt="Atlasロゴ" class="logo">
-      <div class="border vh-50 w-25 form-style">
+      <div class="border vh-50 form-style">
         <div class="w-75 m-auto pt-5">
           <label class="d-block m-0" style="font-size:13px;">メールアドレス</label>
           <div class="border-bottom border-primary w-100">
